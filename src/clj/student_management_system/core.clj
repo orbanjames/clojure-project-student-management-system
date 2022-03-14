@@ -7,7 +7,18 @@
     [student-management-system.config :refer [env]]
     [clojure.tools.cli :refer [parse-opts]]
     [clojure.tools.logging :as log]
-    [mount.core :as mount])
+    [mount.core :as mount]
+    [toucan.db :as db]
+    [toucan.models :as models]
+    [ring.adapter.jetty :refer [run-jetty]]
+    [ring.middleware.cors :refer [wrap-cors]]
+    [ring.util.http-response :refer :all]
+    [compojure.api.sweet :refer [api routes]]
+    [student-management-system.controller.UserController :refer [user-routes]]
+    [student-management-system.controller.UniversityController :refer [university-routes]]
+    [student-management-system.controller.StudentController :refer [student-routes]]
+    [student-management-system.controller.FacultyController :refer [faculty-routes]]
+    [student-management-system.controller.CourseController :refer [course-routes]])
   (:gen-class))
 
 ;; log uncaught exceptions in threads
@@ -56,6 +67,30 @@
     (log/info component "started"))
   (.addShutdownHook (Runtime/getRuntime) (Thread. stop-app)))
 
+
+(def database-spec
+  {:classname   "com.postgresql.cj.jdbc.Driver"
+   :subprotocol "postgresql"
+   :subname     "//localhost:5433/student_management_system"
+   :user        "postgres"
+   :password    "postgres"
+   :useSSL      false
+   })
+
+(def swagger-config
+  {
+   :ui      "/swagger"
+   :spec    "/swagger.json"
+   :options {:ui   {:validatorUrl nil}
+             :data {:info {:version "1.0.0", :title "Student Management System"}}}
+
+   })
+
+(def app
+  (-> (api {:swagger swagger-config} (apply routes user-routes university-routes student-routes faculty-routes course-routes))
+      (wrap-cors :access-control-allow-origin #"http://localhost:4200"
+                 :access-control-allow-methods [:get :put :delete :post])))
+
 (defn -main [& args]
   (-> args
                             (parse-opts cli-options)
@@ -74,5 +109,11 @@
       (migrations/migrate args (select-keys env [:database-url]))
       (System/exit 0))
     :else
-    (start-app args)))
+    (start-app args))
+  (db/set-default-db-connection! database-spec)
+  (db/set-default-quoting-style! :postgresql)
+  (models/set-root-namespace! `student-management-system.model)
+  (run-jetty app {:port 3001})
+  (println "student management system server started!"))
+
   

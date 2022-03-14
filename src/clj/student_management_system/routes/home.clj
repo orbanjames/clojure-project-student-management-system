@@ -1,11 +1,12 @@
 (ns student-management-system.routes.home
   (:require
-   [student-management-system.layout :as layout]
-   [student-management-system.db.core :as db]
-   [clojure.java.io :as io]
-   [student-management-system.middleware :as middleware]
-   [ring.util.response]
-   [ring.util.http-response :as response]))
+    [student-management-system.layout :as layout]
+    [student-management-system.db.core :as db]
+    [clojure.java.io :as io]
+    [student-management-system.middleware :as middleware]
+    [ring.util.response]
+    [ring.util.http-response :as response]))
+
 
 (defn home-page [request]
   (layout/render request "home.html"))
@@ -18,4 +19,3 @@
    ["/docs" {:get (fn [_]
                     (-> (response/ok (-> "docs/docs.md" io/resource slurp))
                         (response/header "Content-Type" "text/plain; charset=utf-8")))}]])
-
