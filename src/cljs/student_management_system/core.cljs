@@ -36,6 +36,7 @@
                  [nav-link "#/" "Home" :Home]
                  [nav-link "#/about" "About" :about]
                  [nav-link "#/STUDENTS" "STUDENTS"]
+                 [nav-link "#/UNIVERSITIES" "UNIVERSITIES" :UNIVERSITIES]
                  [nav-link "#/USER-REGISTRATION" "USER-REGISTRATION" :USER-REGISTRATION]
                  [nav-link "#/FACULTIES" "FACULTIES" :FACULTIES]]]]))
 
@@ -116,18 +117,92 @@
    [:div.container.sign-in
     ]])
 
+
+(defn UNIVERSITIES []
+  [:section.section>div.container>div.content
+   [:div.container
+    [:style "table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }"] [:body
+                         [:h2 "LIST OF STUDENTS ON SCHOLARSHIP"]
+                         [:table
+                          [:tr
+                           [:th "First Name"]
+                           [:th "Last Name"]
+                           [:th "Other Names"]
+                           [:th "Country"]
+                           [:th "Email"]
+                           [:th "Contact"]]
+                          [:tr
+                           [:td "Alfreds Futterkiste"]
+                           [:td "Maria Anders"]
+                           [:td "Germany"]]
+                          [:tr
+                           [:td "Centro comercial Moctezuma"]
+                           [:td "Francisco Chang"]
+                           [:td "Mexico"]]
+                          [:tr
+                           [:td "Ernst Handel"]
+                           [:td "Roland Mendel"]
+                           [:td "Austria"]]
+                          [:tr
+                           [:td "Island Trading"]
+                           [:td "Helen Bennett"]
+                           [:td "UK"]]
+                          [:tr
+                           [:td "Laughing Bacchus Winecellars"]
+                           [:td "Yoshi Tannamuri"]
+                           [:td "Canada"]]
+                          [:tr
+                           [:td "Magazzini Alimentari Riuniti"]
+                           [:td "Giovanni Rovelli"]
+                           [:td "Italy"]]]]
+    [:button.registration {:type "submit"} "login"]]
+   [:div.container.sign-in
+    ]])
+
+
 (defn FACULTIES []
   [:section.section>div.container>div.content
    [:div.container
-    [:p "Please login here."]
-    [:hr]
-    [:label {:for "matric.no"} [:b "matric.no"]]
-    [:input#email {:type "text" :placeholder "Enter matric.no" :name "var" :required "true"}]
-    [:br] [:br]
-    [:label {:for "psw"} [:b "Password"]]
-    [:input#psw {:type "password" :placeholder "Enter Password" :name "psw" :required "true"}]
-    [:br] [:br]
-    [:button.check {:type "submit"} "login"]]
+    [:style "table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }"] [:body
+                         [:h2 "LIST OF STUDENTS ON SCHOLARSHIP"]
+                         [:table
+                          [:tr
+                           [:th "Name Of Faculty"]
+                           [:th "Location"]
+                           [:th "Address"]]
+                          [:tr
+                           [:td "Faculty of Organizational Sciences"]
+                           [:td "Belgrade"]
+                           [:td "No 502 Milan Jovanovic Street, Belgrade"]]]]
+    [:button.registration {:type "submit"} "login"]]
    [:div.container.sign-in
     ]])
 
@@ -154,6 +229,8 @@
 
      ["/STUDENTS" {:name :STUDENTS
                        :view #'STUDENTS}]
+     ["/UNIVERSITIES" {:name :UNIVERSITIES
+                   :view #'UNIVERSITIES}]
      ["/USER-REGISTRATION" {:name :USER-REGISTRATION
                 :view #'USER-REGISTRATION}]
      ["/FACULTIES" {:name :FACULTIES
