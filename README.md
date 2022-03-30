@@ -1,6 +1,7 @@
 # student-management-system
 
-This  is a student project for course title "Software engineering tools and methods" during  Master studies in the Department of Software Engeneering and Computer Sciences, Faculty of Organisational Sciences, University of Belgrade.
+This is my project work for the course title: Tools and Methods of Software Engineering on Master studies @ the Department of Software Engineering and Computer Science, Faculty of Organisational Sciences, UNIVERSITY OF BELGRADE, SERBIA. 
+It also represents my first project experience fully implemented using Clojure Programming Language.
 
 ## Summary of README:
 
