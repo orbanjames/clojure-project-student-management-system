@@ -1,7 +1,12 @@
-# student-management-system
+# STUDENT-MANAGEMENT-SYSTEM
 
-Dance project is student project for subject Software engineering tools and methods on the Master studies - Software Engeneering and Computer Sciences, Faculty of Organisational Sciences, University of Belgrade.
-It represents my first step into functional programming in Clojure programming language.
+This is project work for the course title: Tools and Methods of Software Engineering on Master studies 
+@ the Department of Software Engineering and Computer Science, Faculty of Organisational Sciences,
+UNIVERSITY OF BELGRADE, SERBIA. It also represents my first project experience implemented
+using Clojure Programming Language. 
+The application is a CRUD application that allows the users/students to log in with username and 
+password after registration from the user account page and can see the list of students on scholarship,
+view the list of universities, faculties and courses available in various universities of their choice.
 
 ## Summary of README:
 
