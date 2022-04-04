@@ -35,30 +35,33 @@
                 [:div.navbar-start
                  [nav-link "#/" "Home" :Home]
                  [nav-link "#/about" "About" :about]
-                 [nav-link "#/STUDENTS" "STUDENTS"]
-                 [nav-link "#/UNIVERSITIES" "UNIVERSITIES" :UNIVERSITIES]
-                 [nav-link "#/USER-REGISTRATION" "USER-REGISTRATION" :USER-REGISTRATION]
-                 [nav-link "#/FACULTIES" "FACULTIES" :FACULTIES]]]]))
+                 [nav-link "#/students" "STUDENTS"]
+                 [nav-link "#/universities" "UNIVERSITIES" :UNIVERSITIES]
+                 [nav-link "#/registration" "USER-REGISTRATION" :USER-REGISTRATION]
+                 [nav-link "#/faculties" "FACULTIES" :FACULTIES]]]]))
 
 (defn about-page []
   [:section.section>div.container>div.content
-   [:h1 "First Hands on Clojure Project!"]
-   ;[:img {:src "/img/warning_clojure.png"}]
-   ])
+   [:h1 "This is a CRUD application designed and implemented using Clojure programming language
+         for the fulfilment of the course title Tools and Methods of Software Engineering !"]])
 
 (defn USER-REGISTRATION []
   [:section.section>div.container>div.content
    [:div.container
-    [:p "Please login here."]
+    [:p "Registration Form"]
     [:hr]
     [:label {:for "user-name"} [:b "user-name"]]
     [:input#email {:type "text" :placeholder "Enter user-name" :name "name" :required "true"}]
     [:br] [:br]
+    [:hr]
+    [:label {:for "Email"} [:b "Email"]]
+    [:input#email {:type "text" :placeholder "Enter Email" :name "name" :required "true"}]
+    [:br] [:br]
     [:label {:for "psw"} [:b "Password"]]
     [:input#psw {:type "password" :placeholder "Enter Password" :name "psw" :required "true"}]
     [:br] [:br]
-    [:button.check {:type "submit"} "sign-in"]]
-   [:div.container.signin
+    [:button.check {:type "Register"} "Register User"]]
+   [:div.container.register
     ]])
 
 
@@ -80,41 +83,34 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }"] [:body
-                         [:h2 "LIST OF STUDENTS ON SCHOLARSHIP"]
+                         [:h2 "LIST OF STUDENTS"]
                          [:table
                           [:tr
                            [:th "First Name"]
                            [:th "Last Name"]
-                           [:th "Other Names"]
-                           [:th "Country"]
                            [:th "Email"]
-                           [:th "Contact"]]
+                           [:th "Country"]
+                           [:th "Programme of Study"]
+                           [:th "Contact"]
+                           [:th "Year of Award"]]
                           [:tr
-                           [:td "Alfreds Futterkiste"]
-                           [:td "Maria Anders"]
-                           [:td "Germany"]]
+                           [:td "Aondowase"]
+                           [:td "Orwase"]
+                           [:td "orwase10@gmail.com"]
+                           [:td "Zambia"]
+                           [:td "PHD"]
+                           [:td "07058673547"]
+                           [:td "2010"]]
                           [:tr
-                           [:td "Centro comercial Moctezuma"]
-                           [:td "Francisco Chang"]
-                           [:td "Mexico"]]
-                          [:tr
-                           [:td "Ernst Handel"]
-                           [:td "Roland Mendel"]
-                           [:td "Austria"]]
-                          [:tr
-                           [:td "Island Trading"]
-                           [:td "Helen Bennett"]
-                           [:td "UK"]]
-                          [:tr
-                           [:td "Laughing Bacchus Winecellars"]
-                           [:td "Yoshi Tannamuri"]
-                           [:td "Canada"]]
-                          [:tr
-                           [:td "Magazzini Alimentari Riuniti"]
-                           [:td "Giovanni Rovelli"]
-                           [:td "Italy"]]]]
-    [:button.registration {:type "submit"} "login"]]
-   [:div.container.sign-in
+                           [:td "Ngukenger"]
+                           [:td "Igulen"]
+                           [:td "ngukenger@gmail.com"]
+                           [:td "Canada"]
+                           [:td "Bachelor"]
+                           [:td "08189427322"]
+                           [:td "2015"]]]]
+    [:button.update {:type "update"} "update"]]
+   [:div.container.update
     ]])
 
 
@@ -154,8 +150,8 @@
                            [:td "University of Nis"]
                            [:td "Nis"]
                            [:td "Nis"]]]]
-    [:button.registration {:type "submit"} "login"]]
-   [:div.container.sign-in
+    [:button.update {:type "update"} "update"]]
+   [:div.container.update
     ]])
 
 
@@ -187,7 +183,7 @@
                            [:td "Faculty of Organizational Sciences"]
                            [:td "Belgrade"]
                            [:td "No 502 Milan Jovanovic Street, Belgrade"]]]]
-    [:button.registration {:type "submit"} "login"]]
+    [:button.update {:type "update"} "update"]]
    [:div.container.sign-in
     ]])
 
@@ -212,13 +208,13 @@
      ["/about" {:name :about
                 :view #'about-page}]
 
-     ["/STUDENTS" {:name :STUDENTS
+     ["/students" {:name :STUDENTS
                        :view #'STUDENTS}]
-     ["/UNIVERSITIES" {:name :UNIVERSITIES
+     ["/universities" {:name :UNIVERSITIES
                    :view #'UNIVERSITIES}]
-     ["/USER-REGISTRATION" {:name :USER-REGISTRATION
+     ["/registration" {:name :USER-REGISTRATION
                 :view #'USER-REGISTRATION}]
-     ["/FACULTIES" {:name :FACULTIES
+     ["/faculties" {:name :FACULTIES
                 :view #'FACULTIES}]]))
 
 (defn start-router! []
@@ -226,8 +222,6 @@
     router
     navigate!
     {}))
-
-
 
 ;; -------------------------
 ;; Initialize app
