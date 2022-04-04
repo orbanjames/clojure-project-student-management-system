@@ -21,9 +21,10 @@ and you can find the connection in the "dev-config.edn"
 
 
 # Starting the application from terminal:
-terminal 1:
-terminal 2
- run "npx shadow-cljs watch app" for clojurescript. 
+terminal 1: lein run
+
+terminal 2: npx shadow-cljs watch app" for clojurescript. 
+
 http://localhost:3000, navigate to the browser for the application home page  and clojurescript handle.
 
 
