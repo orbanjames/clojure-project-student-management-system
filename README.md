@@ -26,9 +26,11 @@ terminal 1: lein run
 terminal 2: npx shadow-cljs watch app" for clojurescript. 
 
 http://localhost:3000, navigate to the browser for the application home page  and clojurescript handle.
+http://localhost:3000 for swagger ui.
 
 
-#Testing the applicaction
+#Testing of the application
+
 Lein test
 
 ## License
