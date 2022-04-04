@@ -136,39 +136,24 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }"] [:body
-                         [:h2 "LIST OF STUDENTS ON SCHOLARSHIP"]
+                         [:h2 "LIST OF UNIVERSITIES"]
                          [:table
                           [:tr
-                           [:th "First Name"]
-                           [:th "Last Name"]
-                           [:th "Other Names"]
-                           [:th "Country"]
-                           [:th "Email"]
-                           [:th "Contact"]]
+                           [:th "Name"]
+                           [:th "Address"]
+                           [:th "Location"]]
                           [:tr
-                           [:td "Alfreds Futterkiste"]
-                           [:td "Maria Anders"]
-                           [:td "Germany"]]
+                           [:td "University of Belgrade"]
+                           [:td "Belgrade"]
+                           [:td "Belgrade"]]
                           [:tr
-                           [:td "Centro comercial Moctezuma"]
-                           [:td "Francisco Chang"]
-                           [:td "Mexico"]]
+                           [:td "University of Novi Sad"]
+                           [:td "Novi Sad"]
+                           [:td "Novi Sad"]]
                           [:tr
-                           [:td "Ernst Handel"]
-                           [:td "Roland Mendel"]
-                           [:td "Austria"]]
-                          [:tr
-                           [:td "Island Trading"]
-                           [:td "Helen Bennett"]
-                           [:td "UK"]]
-                          [:tr
-                           [:td "Laughing Bacchus Winecellars"]
-                           [:td "Yoshi Tannamuri"]
-                           [:td "Canada"]]
-                          [:tr
-                           [:td "Magazzini Alimentari Riuniti"]
-                           [:td "Giovanni Rovelli"]
-                           [:td "Italy"]]]]
+                           [:td "University of Nis"]
+                           [:td "Nis"]
+                           [:td "Nis"]]]]
     [:button.registration {:type "submit"} "login"]]
    [:div.container.sign-in
     ]])
@@ -192,7 +177,7 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }"] [:body
-                         [:h2 "LIST OF STUDENTS ON SCHOLARSHIP"]
+                         [:h2 "LIST OF FACULTIES"]
                          [:table
                           [:tr
                            [:th "Name Of Faculty"]
